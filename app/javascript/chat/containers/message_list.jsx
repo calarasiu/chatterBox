@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchMessages } from '../actions/actions';
+import { fetchMessages, appendMessage } from '../actions';
 import Message from '../components/message';
 import MessageForm from '../containers/message_form';
 
@@ -21,12 +21,12 @@ class MessageList extends Component {
     }
   }
 
-  componentDidUpdate() {
-    this.list.scrollTop = this.list.scrollHeight;
-  }
-
   componentWillUnmount() {
     clearInterval(this.refresher);
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
   }
 
   fetchMessages = () => {
