@@ -1,6 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
+
   validates :content, presence: true
 
   after_create :broadcast_message
@@ -24,4 +25,3 @@ class Message < ApplicationRecord
     ActionCable.server.broadcast("channel_#{channel.name}", self)
   end
 end
-
