@@ -1,8 +1,7 @@
 {
   "name": "chatterBox",
-  "engines": {
-    "node": "14.13.0"
-  },
+  
+  "proxy": "http://localhost:3001",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.5",
@@ -30,8 +29,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+    "build": "yarn --cwd frontend install && yarn --cwd frontend build",
+    "deploy": "cp -a frontend/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
   }
 }
