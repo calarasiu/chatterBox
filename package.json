@@ -1,5 +1,8 @@
 {
   "name": "chatterBox",
+  "engines": {
+    "node": "14.13.0"
+  },
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.5",
@@ -23,7 +26,12 @@
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
-  "devDependencies": {
+  "dependencies": {
     "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }
 }
