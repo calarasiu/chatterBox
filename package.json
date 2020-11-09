@@ -29,8 +29,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "yarn --cwd frontend install && yarn --cwd frontend build",
-    "deploy": "cp -a frontend/build/. public/",
+    "build": "yarn --cwd javascript install && yarn --cwd javascript build",
+    "deploy": "cp -a javascript/build/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   }
 }
