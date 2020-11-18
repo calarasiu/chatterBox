@@ -1,6 +1,14 @@
 {
-  "name": "chatterBox",
-  "private": true,
+    "name": "chatterBox",
+    "version": "1.0.0",
+    "description": "The best package you will ever find.",
+    "main": "index.js",
+    "repository": {
+      "url": "https://github.com/yarnpkg/example-yarn-package",
+      "type": "git"
+    },
+    "author": "Yarn Contributor",
+    "license": "MIT",
   "dependencies": {
     "@babel/preset-react": "^7.12.5",
     "@rails/actioncable": "^6.0.0",
@@ -23,8 +31,14 @@
     "turbolinks": "^5.2.0",
     "webpack-dev-server": "^3.11.0"
   },
-  "version": "0.1.0",
+    "engines": {
+      "yarn": "1.22.5",
+      "npm": "6.14.8",
+      "node": "14.13.0"
+    },
   "scripts": {
-    "start": "webpack-dev-server"
+    "build":"cd client && yarn install && npm run build && cd ..",
+    "deploy":"cp -a client/build/. public/",
+    "postinstall":"npm run build && npm run deploy && echo 'finally!'"
   }
 }

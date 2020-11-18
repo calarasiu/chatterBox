@@ -37,6 +37,10 @@ gem 'uglifier'
 gem 'faker'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+
+gem 'rack-cors' , :require => 'rack/cors'
+gem 'foreman'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
